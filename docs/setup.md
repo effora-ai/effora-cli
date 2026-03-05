@@ -29,13 +29,14 @@ source venv/bin/activate  # on Windows: venv\Scripts\activate
 ## 3. Install in editable mode
 
 ```bash
-pip install -e .
+pip install -e ".[dev]"
 ```
 
 ## 4. Verify the CLI works
 
 ```bash
 effora --help
+effora --version
 effora ml --help
 effora genai --help
 ```

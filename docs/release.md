@@ -38,6 +38,19 @@ Effora follows [Semantic Versioning](https://semver.org):
 | New feature | Add new ML command | `0.1.3` → `0.2.0` |
 | Breaking change | Rename CLI commands | `0.2.0` → `1.0.0` |
 
+### 3.5 Test the build locally (optional)
+
+```bash
+pip install hatch
+hatch build
+```
+
+You should see:
+```
+dist/effora_ai-X.X.X.tar.gz
+dist/effora_ai-X.X.X-py3-none-any.whl
+```
+
 ### 3. Commit the version bump
 
 ```bash
@@ -79,7 +92,7 @@ If the trusted publisher needs to be reconfigured:
 2. Add a new trusted publisher with:
    - Repository: `effora-ai/effora-cli`
    - Workflow: `publish.yml`
-   - Environment: (Any)
+   - Environment: (leave blank)
 
 ---
 
