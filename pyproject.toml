@@ -19,18 +19,30 @@ dependencies = [
     "pydantic>=2.0.0",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest>=9.0.0",
+]
+
 classifiers = [
-  "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.10",
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Independent",
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "Topic :: Office/Business :: Financial",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
 ]
 
 [project.scripts]
 effora = "effora.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/effora-ai/effora-cli"
+Homepage = "https://effora.ai"
 Repository = "https://github.com/effora-ai/effora-cli"
 
 [tool.hatch.build.targets.wheel]
