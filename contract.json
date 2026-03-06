@@ -1,0 +1,16 @@
+{
+  "contract_id": "ctr_001",
+  "customer_id": "cust_acme",
+  "currency": "USD",
+  "total_value": 12000,
+  "start_date": "2026-01-01",
+  "end_date": "2026-12-31",
+  "recognition_method": "ratable",
+  "performance_obligations": [
+    {
+      "name": "SaaS Platform Access",
+      "value": 12000,
+      "recognition_method": "ratable"
+    }
+  ]
+}
