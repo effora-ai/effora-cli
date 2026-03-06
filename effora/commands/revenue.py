@@ -1,22 +1,23 @@
 import typer
 import json
 from pathlib import Path
-from effora.engine import recognize, Contract
+from effora.engine.recognition import recognize as run_recognition
+from effora.engine.models import Contract
 
 app = typer.Typer(no_args_is_help=True)
 
 
 @app.command()
 def recognize(
-    contract_file: Path = typer.Argument(..., help="Path to contract JSON file"),
+    contract_path: Path = typer.Argument(..., help="Path to contract JSON file"),
     output: str = typer.Option("table", help="Output format: table | json")
 ):
     """Recognize revenue for a contract under ASC 606."""
-    if not contract_file.exists():
-        typer.echo(f"Error: file not found: {contract_file}", err=True)
+    if not contract_path.exists():
+        typer.echo(f"Error: file not found: {contract_path}", err=True)
         raise typer.Exit(1)
 
-    raw = json.loads(contract_file.read_text())
+    raw = json.loads(contract_path.read_text())
 
     try:
         contract = Contract(**raw)
@@ -24,7 +25,7 @@ def recognize(
         typer.echo(f"Error: invalid contract schema — {e}", err=True)
         raise typer.Exit(1)
 
-    schedule = recognize(contract)
+    schedule = run_recognition(contract)
 
     if output == "json":
         typer.echo(schedule.model_dump_json(indent=2))
