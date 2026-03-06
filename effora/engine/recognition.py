@@ -1,5 +1,6 @@
 from datetime import date, timedelta
 from collections import defaultdict
+from importlib.metadata import version as pkg_version
 from .models import Contract, MonthlyEntry, RecognitionSchedule
 
 
@@ -67,7 +68,7 @@ def recognize(contract: Contract) -> RecognitionSchedule:
         schedule=schedule,
         audit={
             "standard": "ASC 606",
-            "engine_version": "0.1.0",
+            "engine_version": pkg_version("effora-ai"),
             "recognized_total": round(sum(e.recognized for e in schedule), 2),
             "generated_at": date.today().isoformat(),
         }
