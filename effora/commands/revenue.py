@@ -7,7 +7,7 @@ app = typer.Typer(no_args_is_help=True)
 
 
 @app.command()
-def recognize_cmd(
+def recognize(
     contract_file: Path = typer.Argument(..., help="Path to contract JSON file"),
     output: str = typer.Option("table", help="Output format: table | json")
 ):
